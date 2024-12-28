@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum CardValue
@@ -7,6 +8,7 @@ public enum CardValue
     King,
     Ace
 }
+[System.Serializable]
 public class Card
 {
     public CardValue cardValue;
