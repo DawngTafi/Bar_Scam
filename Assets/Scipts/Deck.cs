@@ -12,15 +12,8 @@ public class Deck : MonoBehaviour
     public void  InitializeDeck()
     {
         cardDeck.Clear();
-        foreach(CardValue cardValue in System.Enum.GetValues(typeof(CardValue)))
-        {
+        foreach (CardValue cardValue in System.Enum.GetValues(typeof(CardValue)))
             cardDeck.Add(new Card(cardValue));
-            cardDeck.Add(new Card(cardValue));
-            cardDeck.Add(new Card(cardValue));
-            cardDeck.Add(new Card(cardValue));
-            cardDeck.Add(new Card(cardValue));
-        }
-        
         ShuffleCardDeck();
     }
 

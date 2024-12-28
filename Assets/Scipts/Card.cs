@@ -8,9 +8,11 @@ public enum CardValue
     King,
     Ace
 }
+
 [System.Serializable]
 public class Card
 {
+
     public CardValue cardValue;
 
     public Card(CardValue value)
