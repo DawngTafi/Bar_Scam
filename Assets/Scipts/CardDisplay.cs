@@ -11,19 +11,24 @@ public class CardDisplay : MonoBehaviour
     [SerializeField] Sprite ace;
     [Header("Value Card")]
     [SerializeField] Image valueCard;
+    [Header("Card Back")]
+    [SerializeField] GameObject cardBack;
     
 
     Card myCard;
-
+    public Card MyCard => myCard;
+    Player cardOwner;
+    public  Player Owner => cardOwner;
 
     // void OnValidate()
     // {
     //     SetValue(CardValue.Jack);
     // }
-    public void SetCard(Card card)
+    public void SetCard(Card card,Player owner)
     {
         myCard = card;
         SetValue(card.cardValue);
+        cardOwner = owner;
     }
     void SetValue(CardValue cardValue)
     {
@@ -50,6 +55,16 @@ public class CardDisplay : MonoBehaviour
             }
             break;
         }
+    }
+
+    public void ShowCard()
+    {
+        cardBack.SetActive(false);
+    }
+
+    public void HideCard()
+    {
+        cardBack.SetActive(true);
     }
 
 }

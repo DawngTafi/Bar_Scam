@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         deck.InitializeDeck();
         InitializePlayers();
+        // DealCards();
         StartCoroutine(DealStartingCards());
     }
 
@@ -57,11 +58,12 @@ public class GameManager : MonoBehaviour
                 player.DrawCard(drawnCard);
                 Transform hand = player.IsHuman ? playerHandTransform : aiHandTransforms[players.IndexOf(player)-1];
                 GameObject card = Instantiate(cardPrefab,hand,false);
-                card.GetComponent<CardDisplay>().SetCard(drawnCard);
+                CardDisplay cardDisplay = card.GetComponentInChildren<CardDisplay>();
+                cardDisplay.SetCard(drawnCard,player);
 
-                if(!player.IsHuman)
+                if(player.IsHuman)
                 {
-
+                    cardDisplay.ShowCard();
                 }
 
                 yield return new WaitForSeconds(0.1f);

@@ -13,7 +13,12 @@ public class Deck : MonoBehaviour
     {
         cardDeck.Clear();
         foreach (CardValue cardValue in System.Enum.GetValues(typeof(CardValue)))
-            cardDeck.Add(new Card(cardValue));
+        {
+            for (int i = 0; i < 5; i++) // Thêm 4 lá cho mỗi giá trị
+            {
+                cardDeck.Add(new Card(cardValue));
+            }
+        }
         ShuffleCardDeck();
     }
 
